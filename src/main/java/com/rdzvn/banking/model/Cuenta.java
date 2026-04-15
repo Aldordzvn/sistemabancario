@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class Cuenta {
     private Long id;
     private Long usuarioId;
-    private String nombreCuenta;
+    private String numeroCuenta;
     private TipoCuenta tipo;
     private BigDecimal saldo;
     private EstadoCuenta estado;
@@ -16,9 +16,9 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(Long usuarioId, String nombreCuenta, TipoCuenta tipo, BigDecimal saldo) {
+    public Cuenta(Long usuarioId, String numeroCuenta, TipoCuenta tipo, BigDecimal saldo) {
         this.usuarioId = usuarioId;
-        this.nombreCuenta = nombreCuenta;
+        this.numeroCuenta = numeroCuenta;
         this.tipo = tipo;
         this.saldo = saldo;
         this.estado = EstadoCuenta.ACTIVA;
@@ -40,12 +40,12 @@ public class Cuenta {
         this.usuarioId = usuarioId;
     }
 
-    public String getNombreCuenta() {
-        return nombreCuenta;
+    public String getNumeroCuenta() {
+        return numeroCuenta;
     }
 
-    public void setNombreCuenta(String nombreCuenta) {
-        this.nombreCuenta = nombreCuenta;
+    public void setNumeroCuenta(String numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
 
     public TipoCuenta getTipo() {
@@ -93,7 +93,7 @@ public class Cuenta {
         return "Cuenta{" +
                 "id=" + id +
                 ", usuarioId=" + usuarioId +
-                ", nombreCuenta='" + nombreCuenta + '\'' +
+                ", nombreCuenta='" + numeroCuenta + '\'' +
                 ", tipo=" + tipo +
                 ", saldo=" + saldo +
                 ", estado=" + estado +
