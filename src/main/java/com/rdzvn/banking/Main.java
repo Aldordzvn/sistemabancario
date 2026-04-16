@@ -6,6 +6,9 @@ import com.rdzvn.banking.dao.interfaces.CuentaDAO;
 import com.rdzvn.banking.dao.interfaces.UsuarioDAO;
 import com.rdzvn.banking.db.ConexionDB;
 import com.rdzvn.banking.model.*;
+import com.rdzvn.banking.services.CuentaService;
+import com.rdzvn.banking.services.TransaccionService;
+import com.rdzvn.banking.services.UsuarioService;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -84,5 +87,55 @@ public class Main {
 //        System.out.println("¿Aparece después del soft delete? " + despues.isPresent());
 //
 //        System.out.println("\n=== Fase 4 completada ===");
+
+//        System.out.println("\n=== Prueba Fase 5: Servicios ===\n");
+//
+//        UsuarioService usuarioService       = new UsuarioService();
+//        CuentaService cuentaService         = new CuentaService();
+//        TransaccionService transaccionService = new TransaccionService();
+//
+//        // 1. Registrar usuario con BCrypt
+//        Usuario u = usuarioService.registrar("mgarcia", "mgarcia@mail.com", "segura123");
+//        System.out.println("Registrado: " + u);
+//
+//        // 2. Login correcto
+//        Optional<Usuario> login = usuarioService.iniciarSesion("mgarcia", "segura123");
+//        System.out.println("Login exitoso: " + login.isPresent());
+//
+//        // 3. Login con contraseña incorrecta
+//        Optional<Usuario> loginFallido = usuarioService.iniciarSesion("mgarcia", "incorrecta");
+//        System.out.println("Login con clave incorrecta: " + loginFallido.isPresent());
+//
+//        // 4. Abrir cuentas
+//        Cuenta cuentaA = cuentaService.abrir(u.getId(), TipoCuenta.AHORRO, new BigDecimal("1000.00"));
+//        Cuenta cuentaB = cuentaService.abrir(u.getId(), TipoCuenta.CORRIENTE, new BigDecimal("2000.00"));
+//        System.out.println("Cuenta A: " + cuentaA.getNumeroCuenta() + " saldo: $" + cuentaA.getSaldo());
+//        System.out.println("Cuenta B: " + cuentaB.getNumeroCuenta() + " saldo: $" + cuentaB.getSaldo());
+//
+//        // 5. Depósito
+//        transaccionService.depositar(cuentaA.getId(), new BigDecimal("500.00"), "Depósito inicial");
+//        System.out.println("Saldo A tras depósito: $" +
+//                cuentaService.buscarPorId(cuentaA.getId()).get().getSaldo());
+//
+//        // 6. Transferencia atómica
+//        transaccionService.transferir(cuentaA.getId(), cuentaB.getId(),
+//                new BigDecimal("300.00"), "Pago de servicios");
+//        System.out.println("Saldo A tras transferencia: $" +
+//                cuentaService.buscarPorId(cuentaA.getId()).get().getSaldo());
+//        System.out.println("Saldo B tras transferencia: $" +
+//                cuentaService.buscarPorId(cuentaB.getId()).get().getSaldo());
+//
+//        // 7. Historial
+//        List<Transaccion> historial = transaccionService.obtenerHistorial(cuentaA.getId());
+//        System.out.println("Transacciones de cuenta A: " + historial.size());
+//
+//        // 8. Validación de negocio: retiro sin saldo suficiente
+//        try {
+//            transaccionService.retirar(cuentaA.getId(), new BigDecimal("99999.00"), "Retiro imposible");
+//        } catch (IllegalArgumentException e) {
+//            System.out.println("Error esperado: " + e.getMessage());
+//        }
+//
+//        System.out.println("\n=== Fase 5 completada ===");
     }
 }
