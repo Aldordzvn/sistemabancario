@@ -18,6 +18,7 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.correo = correo;
         this.passwordHash = passwordHash;
+        this.isActive = true;
     }
 
     public Long getId() {
